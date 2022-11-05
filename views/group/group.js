@@ -17,7 +17,7 @@ async function loadScreen(e){
     document.getElementById('welcomename').innerHTML = `${username.split(' ')[0]}`
     console.log(token)
     try {
-        let response = await axios.get('http://localhost:3000/group/getgroups' , {headers:{'Authorization':token}});
+        let response = await axios.get('http://34.228.82.18:3000/group/getgroups' , {headers:{'Authorization':token}});
         
         console.log(response.data.data)
         showOnScreen(response.data.data)
@@ -53,7 +53,7 @@ form.addEventListener('submit' , async(e)=>{
     }
 
     try {
-        const response = await axios.post('http://localhost:3000/group/create-group' ,group , {headers:{'Authorization':token}});
+        const response = await axios.post('http://34.228.82.18:3000/group/create-group' ,group , {headers:{'Authorization':token}});
         e.target.group.value = ""
         loadScreen(e)
 

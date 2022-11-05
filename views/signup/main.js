@@ -13,7 +13,7 @@ async function signup(e){
     }
 
     try {
-        const response = await axios.post("http://localhost:3000/user/signup" , userDetails)
+        const response = await axios.post("http://34.228.82.18:3000/user/signup" , userDetails)
         console.log(response)
         if (response.status === 201){
             console.log('success');

@@ -13,7 +13,7 @@ async function signup(e){
    
 
     try {
-        const response = await axios.post("http://localhost:3000/user/login" , loginDetails)
+        const response = await axios.post("http://34.228.82.18:3000/user/login" , loginDetails)
         if (response.status === 200){
             localStorage.setItem('userToken' , response.data.token)
             localStorage.setItem('name' , response.data.name)

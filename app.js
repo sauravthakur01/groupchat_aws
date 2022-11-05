@@ -49,7 +49,7 @@ app.use((req,res,next)=>{
 
 sequelize.sync()
 .then(()=>{
-    app.listen(3000 ,()=>{
+    app.listen(process.env.PORT || 3000 ,()=>{
         console.log('running dude')
     });
 })

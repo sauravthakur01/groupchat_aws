@@ -36,7 +36,7 @@ async function loadScreen(e){
 
 async function isAdmin(groupId){
     try {
-        let response = await axios.get(`http://localhost:3000/group/isAdmin/${groupId}`  , {headers:{"Authorization" : token}})
+        let response = await axios.get(`http://34.228.82.18:3000/group/isAdmin/${groupId}`  , {headers:{"Authorization" : token}})
         // console.log(response.data)
         localStorage.setItem('isAdmin' , response.data)
 
@@ -62,7 +62,7 @@ async function getMessage(groupId){
     // setInterval(async () => {
         try {
             console.log(groupId)
-            const response =  await axios.get(`http://localhost:3000/message/getMessage/${groupId}?msg=${lastId}`  , {headers:{"Authorization" : token}})
+            const response =  await axios.get(`http://34.228.82.18:3000/message/getMessage/${groupId}?msg=${lastId}`  , {headers:{"Authorization" : token}})
             // console.log(response.data.arr)
             var newArr = response.data.arr
             saveToLocal(newArr);
@@ -137,7 +137,7 @@ document.getElementById('chat-form').onsubmit = async function(e){
         message : e.target.message.value
     }
     try {
-        const response =  await axios.post(`http://localhost:3000/message/postMessage/${groupId}` , message  , {headers:{"Authorization" : token}})
+        const response =  await axios.post(`http://34.228.82.18:3000/message/postMessage/${groupId}` , message  , {headers:{"Authorization" : token}})
         // console.log(response.data.arr);
 
         e.target.message.value = ""
@@ -151,7 +151,7 @@ document.getElementById('chat-form').onsubmit = async function(e){
 async function getUsers(groupId){
     try {
         console.log('sdfsdfsdfsdfsdfsdf')
-        let response =  await axios.get(`http://localhost:3000/group/fetch-users/${groupId}`  , {headers:{"Authorization" : token}})
+        let response =  await axios.get(`http://34.228.82.18:3000/group/fetch-users/${groupId}`  , {headers:{"Authorization" : token}})
         console.log(response.data);
 
         let admi = JSON.parse(localStorage.getItem('isAdmin'));
@@ -195,7 +195,7 @@ async function removeUser(userId){
     }
     console.log(details )
     try {
-        let response = await axios.post(`http://localhost:3000/group/remove-user` ,details  , {headers:{"Authorization" : token}})
+        let response = await axios.post(`http://34.228.82.18:3000/group/remove-user` ,details  , {headers:{"Authorization" : token}})
         // console.log(response.data.user);
         alert('removed user succesfully');
         removeUserFromScreen(response.data.user)
@@ -216,7 +216,7 @@ async function makeAdmin(userId){
     }
     console.log(details )
     try {
-        let response = await axios.post(`http://localhost:3000/group/makeAdmin` ,details  , {headers:{"Authorization" : token}})
+        let response = await axios.post(`http://34.228.82.18:3000/group/makeAdmin` ,details  , {headers:{"Authorization" : token}})
         console.log(response);
         alert('user is admin now');
     } catch (err) {
@@ -232,7 +232,7 @@ async function removeAdmin(userId){
     }
     console.log(details )
     try {
-        let response = await axios.post(`http://localhost:3000/group/removeAdmin` ,details  , {headers:{"Authorization" : token}})
+        let response = await axios.post(`http://34.228.82.18:3000/group/removeAdmin` ,details  , {headers:{"Authorization" : token}})
         console.log(response);
         alert('removed admin');
     } catch (err) {
@@ -254,7 +254,7 @@ document.getElementById('form-group').onsubmit = async function(e){
     }
 
     try {
-        let response = await axios.post(`http://localhost:3000/group/addUser`  ,details ,  {headers:{"Authorization" : token}})
+        let response = await axios.post(`http://34.228.82.18:3000/group/addUser`  ,details ,  {headers:{"Authorization" : token}})
         
         addGroupUsersToScreen(response.data.user)
         alert('user added successfully')

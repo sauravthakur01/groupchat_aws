@@ -7,7 +7,7 @@ document.getElementById('forget-form').onsubmit = async(e)=>{
 
     console.log(details)
     try {
-        let response = await axios.post('http://localhost:3000/password/forgotpassword' , details)
+        let response = await axios.post('http://34.228.82.18:3000/password/forgotpassword' , details)
         if(response.status === 202){
             alert('mail successfully sent');
         }else {
